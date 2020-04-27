@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: morty-service
+
+
+  jackson:
+    default-property-inclusion: NON_NULL
+  profiles:
+    active: dev
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/?readPreference=primary&ssl=false
+      database: morty
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.zaxxer.hikari: WARN
+    com.mysql.cj: WARN
+    org.springframework.cloud: DEBUG
