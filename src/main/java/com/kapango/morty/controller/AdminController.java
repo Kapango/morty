@@ -1,6 +1,6 @@
 package com.kapango.morty.controller;
 
-import com.kapango.morty.client.slack.SlackService;
+import com.kapango.morty.service.slack.SlackMessagingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final SlackService slackService;
+    private final SlackMessagingService slackMessagingService;
 
-    public AdminController(SlackService slackService) {
-        this.slackService = slackService;
+    public AdminController(SlackMessagingService slackMessagingService) {
+        this.slackMessagingService = slackMessagingService;
     }
 
     @GetMapping("/slack/ping")
     public void pingSlack() {
-        slackService.ping();
+        slackMessagingService.ping();
     }
 
 

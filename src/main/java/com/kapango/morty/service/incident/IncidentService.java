@@ -1,4 +1,4 @@
-package com.kapango.morty.service;
+package com.kapango.morty.service.incident;
 
 import com.kapango.morty.api.Incident;
 import com.kapango.morty.api.IncidentApi;

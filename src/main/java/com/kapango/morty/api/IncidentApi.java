@@ -1,6 +1,6 @@
 package com.kapango.morty.api;
 
-import com.kapango.morty.service.IncidentNotFoundException;
+import com.kapango.morty.service.incident.IncidentNotFoundException;
 
 import java.util.List;
 

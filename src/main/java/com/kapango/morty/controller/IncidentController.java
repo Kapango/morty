@@ -2,8 +2,9 @@ package com.kapango.morty.controller;
 
 import com.kapango.morty.api.Incident;
 import com.kapango.morty.api.IncidentApi;
-import com.kapango.morty.service.IncidentNotFoundException;
-import com.kapango.morty.service.IncidentService;
+import com.kapango.morty.domain.IncidentSeverity;
+import com.kapango.morty.service.incident.IncidentNotFoundException;
+import com.kapango.morty.service.incident.IncidentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +47,10 @@ public class IncidentController implements IncidentApi {
     @Override
     public List<Incident> getIncidentsByState(@PathVariable String state) {
         return incidentService.getIncidentsByState(state);
+    }
+
+    @GetMapping("/severity/levels")
+    public List<String> getIncidentSeverityLevels() {
+        return IncidentSeverity.getSeverityLevels();
     }
 }

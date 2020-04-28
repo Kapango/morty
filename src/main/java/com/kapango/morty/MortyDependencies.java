@@ -3,7 +3,7 @@ package com.kapango.morty;
 import com.hubspot.slack.client.SlackClient;
 import com.hubspot.slack.client.SlackClientFactory;
 import com.hubspot.slack.client.SlackClientRuntimeConfig;
-import com.kapango.morty.client.slack.SlackService;
+import com.kapango.morty.service.slack.SlackMessagingService;
 import com.kapango.morty.config.SlackConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class MortyDependencies {
 
     @Bean
     @ConditionalOnProperty(name = "slack.enabled", havingValue = "true")
-    public SlackService buildSlackService() {
+    public SlackMessagingService buildSlackService() {
         log.info("Building Slack Service");
         SlackClientRuntimeConfig runtimeConfig = SlackClientRuntimeConfig.builder()
                 .setTokenSupplier(slackConfig::getApiKey)
@@ -32,6 +32,6 @@ public class MortyDependencies {
 
         SlackClient slackClient = SlackClientFactory.defaultFactory().build(runtimeConfig);
 
-        return new SlackService(slackClient, slackConfig);
+        return new SlackMessagingService(slackClient, slackConfig);
     }
 }

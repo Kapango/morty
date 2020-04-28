@@ -12,7 +12,6 @@ import java.util.List;
 @Repository
 public interface IncidentRepository extends MongoRepository<Incident, String> {
 
-
     List<Incident> findAllBySeverity(@Param("severity") String severity);
 
     List<Incident> findAllBySystemsIsContaining(@Param("system") List<String> systems);
