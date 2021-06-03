@@ -17,7 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <slack.version>1.8</slack.version>
-        <resteasy.version>3.6.3.Final</resteasy.version>
+        <resteasy.version>4.5.7.Final</resteasy.version>
     </properties>
 
     <dependencies>
